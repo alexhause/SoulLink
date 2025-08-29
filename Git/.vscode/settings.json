@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    "yaml.validate": true,
+    "files.associations": {
+        "*.shader": "shaderlab",
+        "*.compute": "shaderlab"
+    },
+    "csharp.semanticHighlighting.enabled": true,
+    "csharp.inlayHints.enable": true,
+    "[csharp]": {
+        "editor.formatOnSave": true
+    }
+}

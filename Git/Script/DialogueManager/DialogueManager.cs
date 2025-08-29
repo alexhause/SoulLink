@@ -21,13 +21,15 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
     public bool dialogueIsPlaying { get; private set; }
 
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-           Destroy(gameObject);
-           Debug.LogError("More than one DialogueManager instance!");
-           return;
+            Destroy(gameObject);
+            Debug.LogError("More than one DialogueManager instance!");
+            return;
         }
 
         Instance = this;
@@ -104,7 +106,7 @@ public class DialogueManager : MonoBehaviour
             string tagValue = splitTag[1].Trim();
 
             switch (tagKey)
-            {               
+            {
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;

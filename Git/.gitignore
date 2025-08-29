@@ -1,0 +1,36 @@
+# Игнорируем стандартные папки Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Игнорируем стандартные файлы Unity
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# Кэш пакетов
+Packages/com.unity.package-manager-ui/
+
+# Игнорировать сцены, ассеты, материалы, спрайты, текстуры
+Assets/Scenes/
+Assets/Prefabs/
+Assets/Materials/
+Assets/Sprites/
+Assets/Textures/
+Assets/Audio/
+Assets/Fonts/
+Assets/Shaders/
+
+# Игнорировать все кроме Scripts и Dialogues
+# Оставляем только эти папки
+!Assets/Scripts/
+!Assets/Resources/Dialogues/

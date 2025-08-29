@@ -61,6 +61,8 @@ public class DialogueManager : MonoBehaviour
         OnDialogueModeEnter?.Invoke();
         currentStory = new Ink.Runtime.Story(inkJSON.text);
         dialogueIsPlaying = true;
+        dialogueText.text = "";
+        HideChoicesUI();
         ContinueStory();
     }
 
@@ -114,11 +116,17 @@ public class DialogueManager : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = "";
-        foreach (char let in sentence.ToCharArray())
+        foreach (char c in sentence)
         {
-            dialogueText.text += let;
+            if (!isTyping)
+            {
+                dialogueText.text = sentence;
+                break;
+            }
+            dialogueText.text += c;
             yield return null;
         }
+        isTyping = false;
         DisplayChoices();
     }
 

@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Choices UI")]
     [SerializeField] private List<TextMeshProUGUI> choices;
+    [SerializeField] private GameObject choicesPanel;
     private bool isTyping = false;
     private Ink.Runtime.Story currentStory;
 
@@ -65,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Ink.Runtime.Story(inkJSON.text);
         dialogueIsPlaying = true;
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
+        if (choicesPanel != null) choicesPanel.SetActive(false);
         dialogueText.text = "";
         HideChoicesUI();
         ContinueStory();
@@ -77,6 +79,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         HideChoicesUI();
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
+        if (choicesPanel != null) choicesPanel.SetActive(false);
         OnDialogueModeExit?.Invoke();
     }
 
@@ -145,6 +148,8 @@ public class DialogueManager : MonoBehaviour
                 + currentChoices.Count);
         }
 
+        if (choicesPanel != null) choicesPanel.SetActive(currentChoices.Count > 0);
+
         int index = 0;
         foreach (Choice choice in currentChoices)
         {
@@ -172,5 +177,6 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
+        if (choicesPanel != null) choicesPanel.SetActive(false);
     }
 }

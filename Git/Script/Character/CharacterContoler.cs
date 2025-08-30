@@ -7,12 +7,6 @@ public class CharacterContoler : MonoBehaviour
     {
         DialogueManager.Instance.EnterDialogueMode(dialogueJSON);
     }
-
-    private void Update()
-    {
-
-    }
-
 }
 
 

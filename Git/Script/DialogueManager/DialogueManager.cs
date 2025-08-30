@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue UI")]
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private GameObject dialoguePanel;
 
     [Header("Choices UI")]
     [SerializeField] private List<TextMeshProUGUI> choices;
@@ -63,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         OnDialogueModeEnter?.Invoke();
         currentStory = new Ink.Runtime.Story(inkJSON.text);
         dialogueIsPlaying = true;
+        if (dialoguePanel != null) dialoguePanel.SetActive(true);
         dialogueText.text = "";
         HideChoicesUI();
         ContinueStory();
@@ -74,6 +76,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialogueText.text = "";
         HideChoicesUI();
+        if (dialoguePanel != null) dialoguePanel.SetActive(false);
         OnDialogueModeExit?.Invoke();
     }
 

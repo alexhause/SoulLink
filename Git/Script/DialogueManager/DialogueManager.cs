@@ -10,8 +10,6 @@ public class DialogueManager : MonoBehaviour
     public event Action OnDialogueModeEnter;
     public event Action OnDialogueModeExit;
 
-
-
     [Header("Dialogue UI")]
     [SerializeField] private TextMeshProUGUI dialogueText;
 

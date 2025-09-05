@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Validator : MonoBehaviour
 {
+    public event Action<bool> OnValidate;
+
     [Header("Зоны для отслеживания")]
     [SerializeField] private List<DropZone2D> trackedZones = new List<DropZone2D>();
 
@@ -54,7 +57,11 @@ public class Validator : MonoBehaviour
 
     public void ValidateCode()
     {
-        if (Validate()) Debug.Log("GOOD");
+        if (Validate())
+        {
+            OnValidate?.Invoke(true);
+            Debug.Log("GOOD");
+        }
         else Debug.Log("BAD");
     }
 

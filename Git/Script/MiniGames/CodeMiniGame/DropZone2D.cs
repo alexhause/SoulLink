@@ -118,7 +118,7 @@ public class DropZone2D : MonoBehaviour
 
         if (OnBlockDropped != null)
         {
-            OnBlockDropped.Invoke(codeBlock.OrderIndex);
+            OnBlockDropped?.Invoke(codeBlock.OrderIndex);
         }
         else
         {

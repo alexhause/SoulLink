@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using Ink.Runtime;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public event Action OnDialogueModeEnter;
@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject choicesPanel;
     private bool isTyping = false;
     private Ink.Runtime.Story currentStory;
+    private const string CODE_MINI_GAME_TAG = "code-mini-game";
 
     public static DialogueManager Instance { get; private set; }
     public bool dialogueIsPlaying { get; private set; }
@@ -113,6 +114,9 @@ public class DialogueManager : MonoBehaviour
 
             switch (tagKey)
             {
+                case (CODE_MINI_GAME_TAG):
+                    SceneManager.LoadScene("CodeGame");
+                    break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;

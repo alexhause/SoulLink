@@ -105,21 +105,20 @@ public class DropZone2D : MonoBehaviour
     {
         if (blockObject == null)
         {
-            Debug.LogWarning("DropZone2D: blockObject is null in RaiseBlockDropped");
+       
             return;
         }
 
         CodeBlock codeBlock = blockObject.GetComponent<CodeBlock>();
         if (codeBlock == null)
         {
-            Debug.LogWarning("DropZone2D: CodeBlock component not found on dropped object");
+            
             return;
         }
 
         if (OnBlockDropped != null)
         {
             OnBlockDropped.Invoke(codeBlock.OrderIndex);
-            Debug.Log($"DropZone2D: raised OnBlockDropped with orderIndex={codeBlock.OrderIndex}");
         }
         else
         {

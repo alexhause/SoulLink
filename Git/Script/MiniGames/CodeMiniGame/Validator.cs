@@ -19,7 +19,6 @@ public class Validator : MonoBehaviour
             if (found != null && found.Length > 0)
             {
                 trackedZones = new List<DropZone2D>(found);
-                Debug.Log($"Validator: auto-bound {trackedZones.Count} drop zones");
             }
             else
             {
@@ -50,7 +49,6 @@ public class Validator : MonoBehaviour
     // Добавляет orderIndex в список при срабатывании события зоны
     private void OnZoneBlockDropped(int orderIndex)
     {
-        Debug.Log("OnZoneBlockDropped: " + orderIndex);
         placedOrder.Add(orderIndex);
     }
 
